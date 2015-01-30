@@ -271,14 +271,7 @@ void Multiset::swap(Multiset& other) // swaps the 2 multisets
 
 void combine(const Multiset& ms1, const Multiset& ms2, Multiset& result) // combines the 2 Multisets; adds the values by amount count from each Multiset
 {
-    Multiset* newSet = new Multiset; // create a new placeholder Multiset
-    for (int i = 0; i < ms1.uniqueSize(); i++) // add each value from ms1 to the temp Multiset, adding it count times
-    {
-        ItemType y;
-        int x = ms1.get(i, y);
-        for (int z = 0; z < x; z++)
-            newSet->insert(y);
-    }
+    Multiset* newSet = new Multiset(ms1); // creates a new Multiset holding all values from ms1
     for (int i = 0; i < ms2.uniqueSize(); i++) // add each value from ms2 to the temp Multiset, adding it count times
     {
         ItemType y;
@@ -292,14 +285,7 @@ void combine(const Multiset& ms1, const Multiset& ms2, Multiset& result) // comb
 
 void subtract(const Multiset& ms1, const Multiset& ms2, Multiset& result)  // subtracts Multiset2 from Multiset1
 {
-    Multiset* newSet = new Multiset; // creates a temp Multiset
-    for (int i = 0; i < ms1.uniqueSize(); i++) // add each value from ms1 to temp Multiset, adding it count times
-    {
-        ItemType y;
-        int x = ms1.get(i, y);
-        for (int z = 0; z < x; z++)
-            newSet->insert(y);
-    }
+    Multiset* newSet = new Multiset(ms1); // creates a new Multiset holding all the values from ms1
     for (int i = 0; i < ms2.uniqueSize(); i++) // erase each value from ms2 from temp Multiset count times, erasing it count times; if its no longer in ms1
     {
         ItemType y;
