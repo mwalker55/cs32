@@ -179,9 +179,9 @@ int Multiset::get(int i, ItemType& value) const
 
 void Multiset::swap(Multiset& other)
 {
-    holder *swag = other.set;
+    holder *swapper = other.set;
     other.set = set;
-    set = swag;
+    set = swapper;
     int num1 = other.m_Number;
     other.m_Number = m_Number;
     m_Number = num1;
